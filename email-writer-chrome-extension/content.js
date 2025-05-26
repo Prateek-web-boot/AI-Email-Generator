@@ -15,6 +15,26 @@ return button;
 }
 
 
+function getEmailContent() {
+    const selectors = [
+        '.h7',
+        '.a3s.aiL',
+        '[role = "presentation"]'
+        
+    ];
+    
+    for(const selector of selectors) {
+        const content = document.querySelector(selector);
+    
+        if(content) {
+            return content.innerText.trim();
+        }
+        
+    }
+    return '';
+}
+
+
 function findComposeToolbar() {
     const selectors = [
         '.btC',
@@ -28,11 +48,10 @@ function findComposeToolbar() {
     
         if(toolbar) {
             return toolbar;
-        }
-    
-        return null;
+        }     
         
     }
+    return null;
 }
 
 function injectButton() {
@@ -55,10 +74,55 @@ function injectButton() {
 
     button.addEventListener('click', async () => {
 
+        try {
+            button.innerHTML = "Generating...";
+            button.disabled = true;
+    
+    
+            const emailContent = getEmailContent();
+    
+            const response = await fetch("http://localhost:8080/api/email/generate", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    emailContent: emailContent,
+                    tone: 'professional'
+                })
+            });
+
+            if(!response.ok) {
+                throw new Error("API request Failed!");
+            }
+
+            const generatedReply = await response.text();
+
+            //class="Am aiL aO9 Al editable LW-avf tS-tW"
+            //g_editable="true"
+            //role="textbox"
+
+            const composeBox = document.querySelector('[role="textbox"][g_editable="true"]');
+
+            if(composeBox) {
+                composeBox.focus();
+                document.execCommand('insertText', false, generatedReply);
+            }else {
+                console.error('ComposeBox Not found !');
+            }
+
+        }catch(error) {
+            console.error(error);
+            alert("Failed to Generate Reply!");
+
+        } finally {
+            button.disabled = false;
+            button.innerHTML = 'AI Reply';
+        }
+       
     });
 
     toolbar.insertBefore(button, toolbar.firstChild);
-
 
 }
 
