@@ -26,6 +26,7 @@
     background: transparent !important; /* Transparent background */
     text-shadow: none !important; /* No text shadow */
     z-index: 2 !important; /* Ensure they are above the container's background */
+    font-size: 11px !important;
 }
 
 /* Styles for the dropdown arrow part */
@@ -36,7 +37,7 @@
 
     /* **ARROW VISIBILITY FIXES (Re-emphasized)** */
     color: #FFFFFF !important; /* Force white color for the arrow character */
-    font-size: 10px !important; /* Explicitly set a visible font size */
+    font-size: 8px !important; /* Explicitly set a visible font size */
     line-height: 1 !important; /* Help vertical alignment */
     display: flex !important; /* Ensure flexbox properties apply for centering */
     align-items: center !important; /* Center vertically */
@@ -46,7 +47,7 @@
 /* Dropdown Content Styles (unchanged) */
 .ai-reply-dropdown-content {
     background-color: #fff;
-    min-width: 160px;
+    min-width: 140px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 100000;
     border-radius: 6px;
@@ -61,7 +62,7 @@
     padding: 8px 16px;
     text-decoration: none;
     display: block;
-    font-size: 13px;
+    font-size: 11px;
     white-space: nowrap;
     cursor: pointer;
 }
