@@ -36,8 +36,14 @@
         }
     ],
     "action": {
-        "default_title": "Email writer Assistant"
+        "default_title": "Email writer Assistant",
+        "default_icon": {
+            "16": "icon/ai-icon.png",
+            "48": "icon/ai-icon.png",
+            "128": "icon/ai-icon.png"
+        }
     },
+
     "browser_specific_settings": {
         "gecko": {
             "id": "ai-email-reply@prateekextension.com",
