@@ -1,0 +1,75 @@
+/* Custom styles for the AI Reply button */
+
+/* Base styles for the merged button container */
+.ai-reply-merged-button-container {
+    background: linear-gradient(to bottom, #0b57d0, #0b57d0) !important; /* Google Blue shades */
+    border: 1px solid #0b57d0 !important; /* Darker blue border */
+    border-radius: 6px !important; /* Standard border-radius */
+    box-shadow: none !important; /* Remove any default box-shadow */
+    z-index: 1; /* Keep this low enough not to interfere with dropdown */
+}
+
+/* Handle hover/active states */
+.ai-reply-merged-button-container:hover {
+    background: linear-gradient(to bottom, #4F93FF, #4274C2) !important; /* Slightly lighter blue on hover */
+    border-color: #0b57d0 !important;
+}
+
+.ai-reply-merged-button-container:active {
+    background: linear-gradient(to top, #4285F4, #3367D6) !important; /* Invert gradient on active */
+    border-color: #0b57d0 !important;
+}
+
+/* Ensure text color and background for inner elements */
+.ai-reply-merged-button-container .ai-reply-text {
+    color: #FFFFFF !important; /* White text */
+    background: transparent !important; /* Transparent background */
+    text-shadow: none !important; /* No text shadow */
+    z-index: 2 !important; /* Ensure they are above the container's background */
+}
+
+/* Styles for the dropdown arrow part */
+.ai-reply-merged-button-container .ai-reply-dropdown-arrow-part {
+    border-left: 1px solid #0b57d0 !important; /* Match border color */
+    background: transparent !important; /* Ensure transparent background for this part */
+    opacity: 1 !important; /* Ensure it's not hidden by opacity */
+
+    /* **ARROW VISIBILITY FIXES (Re-emphasized)** */
+    color: #FFFFFF !important; /* Force white color for the arrow character */
+    font-size: 10px !important; /* Explicitly set a visible font size */
+    line-height: 1 !important; /* Help vertical alignment */
+    display: flex !important; /* Ensure flexbox properties apply for centering */
+    align-items: center !important; /* Center vertically */
+    justify-content: center !important; /* Center horizontally */
+}
+
+/* Dropdown Content Styles (unchanged) */
+.ai-reply-dropdown-content {
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100000;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    box-sizing: border-box;
+    pointer-events: auto;
+}
+
+.ai-reply-dropdown-option {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ai-reply-dropdown-option:hover {
+    background-color: #ddd;
+}
+
+.ai-reply-dropdown-option:active {
+    background-color: #ccc;
+}
